@@ -41,14 +41,14 @@ PAGE = '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>__TITLE__</title>
 <style>
-:root{--bg:#0b0f17;--panel:#101827;--text:#e6edf3;--muted:#9fb0c0;--border:#223047;--accent:#7aa2f7}
+:root{--bg:#f8fafc;--panel:#fff;--text:#172033;--muted:#526077;--border:#dbe3ed;--accent:#1859aa}
 *{box-sizing:border-box}body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}.title{text-align:center;padding:10px 0}h1{margin:0 0 6px;font-size:28px}.sub{margin:0;color:var(--muted)}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;box-shadow:0 10px 26px rgba(0,0,0,.25);margin:8px 0}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 4px 14px rgba(23,32,51,.06);margin:8px 0}
 .controls{display:grid;grid-template-columns:1.5fr .8fr .8fr 1.1fr;gap:12px;align-items:end}.control label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
-input,select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0c1422;color:var(--text);font:inherit}input:focus,select:focus{outline:none;border-color:var(--accent)}
-.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{display:flex;gap:6px;align-items:center;border:1px solid var(--border);padding:6px 8px;border-radius:999px;background:#0c1422;user-select:none}.checks input{width:auto}
-.table-wrap{overflow:auto}table{width:100%;border-collapse:separate;border-spacing:0}th,td{padding:10px;border-bottom:1px solid var(--border);white-space:nowrap}th{position:sticky;top:0;background:linear-gradient(#111b2b,#0f1827);text-align:left;font-size:12px;color:var(--muted);cursor:pointer}tbody tr:hover{background:#0d1626}.rank{color:var(--accent);font-weight:600}.score{font-variant-numeric:tabular-nums}.foot{margin-top:10px;color:var(--muted);font-size:12px}@media(max-width:800px){.controls{grid-template-columns:1fr 1fr}}
+input,select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#fff;color:var(--text);font:inherit}input:focus,select:focus{outline:none;border-color:var(--accent)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{display:flex;gap:6px;align-items:center;border:1px solid var(--border);padding:6px 8px;border-radius:999px;background:#fff;user-select:none}.checks input{width:auto}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:.8rem;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}th{position:sticky;top:0;background:#e8eef7;font-size:12px;color:var(--muted);cursor:pointer}tbody tr:hover{background:#f1f5f9}.rank{color:var(--accent);font-weight:600}.score{font-variant-numeric:tabular-nums}.foot{margin-top:10px;color:var(--muted);font-size:12px}@media(max-width:800px){.controls{grid-template-columns:1fr 1fr}}
 </style></head><body><header class="wrap"><div class="title"><h1>__TITLE__</h1><p class="sub">__SUBTITLE__</p></div></header>
 <main class="wrap"><section class="controls card"><div class="control"><label for="search">Search</label><input id="search" type="search" placeholder="Search team or model…"></div><div class="control"><label for="modelFilter">Model</label><select id="modelFilter"><option value="all">All</option></select></div><div class="control"><label for="typeFilter">Type</label><select id="typeFilter"><option value="all">All</option></select></div><div class="control"><label>Columns</label><div class="checks" id="columnToggles"></div></div></section>
 <section class="card"><div class="table-wrap"><table id="board"><thead><tr><th data-key="rank">Rank</th><th data-key="team">Team</th><th data-key="type">Type</th><th data-key="model">Model</th><th data-key="score">F1 Score</th></tr></thead><tbody></tbody></table></div><div class="foot" id="status"></div></section></main>
@@ -64,7 +64,7 @@ fetch('leaderboard.json',{cache:'no-store'}).then(response=>response.ok?response
 
 
 def render(root: Path, records: list[dict] | None = None) -> None:
-    root = Path(root)
+    root = Path(root).resolve()
     if records is None:
         ledger = root / "leaderboard/records.json"
         records = json.loads(ledger.read_text(encoding="utf-8")) if ledger.exists() else []
@@ -87,8 +87,8 @@ def render(root: Path, records: list[dict] | None = None) -> None:
     atomic_write(root / "docs/leaderboard.csv", csv_contents, overwrite=True)
     atomic_write(root / "docs/leaderboard.json", (json.dumps(ranked, indent=2, allow_nan=False) + "\n").encode(), overwrite=True)
     labels = {
-        "DERMA": ("DERMA Leaderboard", "Dermoscopic Evaluation of Region Masks and Algorithms"),
-        "TRACE": ("TRACE Leaderboard", "Tomato Recognition And Coding Evaluation"),
+        "DERMA": ("DERMA", "Dermoscopic Evaluation of Region Masks and Algorithms"),
+        "TRACE": ("TRACE", "Tomato Recognition And Coding Evaluation"),
     }
     title, subtitle = labels.get(root.name, ("Leaderboard", ""))
     page = PAGE.replace("__TITLE__", html.escape(title)).replace("__SUBTITLE__", html.escape(subtitle))
