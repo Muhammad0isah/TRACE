@@ -30,6 +30,14 @@ and green tomatoes in large and small size groups.
 The original data is [Laboro Tomato](https://github.com/laboroai/LaboroTomato),
 licensed CC BY-NC-SA 4.0. This competition uses its bounding-box annotations.
 
+### Annotation example
+
+<img src="docs/assets/trace_detection_example.png" alt="Original tomato-farm image beside its ground-truth tomato bounding boxes" width="100%">
+
+The left panel is an official training image. The right panel shows the target
+bounding boxes used for object-detection training; box colours distinguish the
+six tomato size-and-ripeness classes.
+
 ---
 
 ## Repository Structure
