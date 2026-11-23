@@ -87,8 +87,8 @@ def render(root: Path, records: list[dict] | None = None) -> None:
     atomic_write(root / "docs/leaderboard.csv", csv_contents, overwrite=True)
     atomic_write(root / "docs/leaderboard.json", (json.dumps(ranked, indent=2, allow_nan=False) + "\n").encode(), overwrite=True)
     labels = {
-        "DERMA": ("DERMA", "Dermoscopic Evaluation of Region Masks and Algorithms"),
-        "TRACE": ("TRACE", "Tomato Recognition And Coding Evaluation"),
+        "DERMA": ("DERMA Challenge Leaderboard", "Dermoscopic Evaluation of Region Masks and Algorithms"),
+        "TRACE": ("TRACE Challenge Leaderboard", "Tomato Recognition And Coding Evaluation"),
     }
     title, subtitle = labels.get(root.name, ("Leaderboard", ""))
     page = PAGE.replace("__TITLE__", html.escape(title)).replace("__SUBTITLE__", html.escape(subtitle))
