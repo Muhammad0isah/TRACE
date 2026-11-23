@@ -1,0 +1,24 @@
+[
+  {
+    "rank": 1,
+    "timestamp_utc": "2026-11-23T21:17:35Z",
+    "benchmark_id": "trace-v1",
+    "team": "MuhammadIbrahimIsah",
+    "type": "human",
+    "model": "GraphSSDLite",
+    "notes": "20 epochs from scratch on the full official training partition; fixed four-neighbour graph message-passing adapters on six SSDLite feature-pyramid maps.",
+    "run": {
+      "seed": 25,
+      "threads": 4,
+      "epochs": 20,
+      "weights": "none"
+    },
+    "score": 0.15961622328826863,
+    "metrics": {
+      "f1_score": 0.15961622328826863
+    },
+    "primary_metric": "f1_score",
+    "pr_number": 1,
+    "submission_sha256": "ac01d3b60abda37594c78139604f8e688c5f673a9f6085d1552a73fb5eefcba5"
+  }
+]

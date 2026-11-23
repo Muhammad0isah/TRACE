@@ -1,0 +1,29 @@
+{
+  "benchmark_id": "trace-v1",
+  "task": "object_detection",
+  "dataset": "Laboro Tomato (complete tomato_mixed release)",
+  "expected_train_images": 643,
+  "expected_test_images": 161,
+  "expected_train_boxes": 7781,
+  "expected_test_boxes": 1996,
+  "expected_categories": 6,
+  "seed": 25,
+  "corruption": {
+    "name": "independent_rgb_gaussian_noise",
+    "sigma_8bit": 3.0,
+    "clip": [0, 255],
+    "output_format": "PNG",
+    "seed_rule": "first 8 bytes SHA256('25:<opaque_image_id>'), big endian",
+    "numpy_bit_generator": "PCG64"
+  },
+  "primary_metric": "f1_score",
+  "metric_implementation": "micro F1 at IoU 0.50 with score threshold 0.50, greedy score-ordered matching",
+  "max_detections_per_image": 126,
+  "iou_threshold": 0.5,
+  "score_threshold": 0.5,
+  "score_range": [0, 1],
+  "cpu_time_limit_seconds": 10800,
+  "cpu_threads": 4,
+  "runtime_verified": false,
+  "release_status": "draft_requires_full_dataset_audit_and_cpu_pilot"
+}

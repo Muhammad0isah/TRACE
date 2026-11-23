@@ -1,0 +1,1003 @@
+{
+  "benchmark_id": "trace-v1",
+  "categories": [
+    {
+      "id": 1,
+      "name": "b_fully_ripened",
+      "supercategory": "type"
+    },
+    {
+      "id": 2,
+      "name": "b_half_ripened",
+      "supercategory": "type"
+    },
+    {
+      "id": 3,
+      "name": "b_green",
+      "supercategory": "type"
+    },
+    {
+      "id": 4,
+      "name": "l_fully_ripened",
+      "supercategory": "type"
+    },
+    {
+      "id": 5,
+      "name": "l_half_ripened",
+      "supercategory": "type"
+    },
+    {
+      "id": 6,
+      "name": "l_green",
+      "supercategory": "type"
+    }
+  ],
+  "images": [
+    {
+      "file_name": "test/images/test_000001.png",
+      "height": 4032,
+      "image_id": "test_000001",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000002.png",
+      "height": 4032,
+      "image_id": "test_000002",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000003.png",
+      "height": 4032,
+      "image_id": "test_000003",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000004.png",
+      "height": 4032,
+      "image_id": "test_000004",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000005.png",
+      "height": 4032,
+      "image_id": "test_000005",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000006.png",
+      "height": 4032,
+      "image_id": "test_000006",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000007.png",
+      "height": 4032,
+      "image_id": "test_000007",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000008.png",
+      "height": 4032,
+      "image_id": "test_000008",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000009.png",
+      "height": 4032,
+      "image_id": "test_000009",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000010.png",
+      "height": 4032,
+      "image_id": "test_000010",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000011.png",
+      "height": 4032,
+      "image_id": "test_000011",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000012.png",
+      "height": 4032,
+      "image_id": "test_000012",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000013.png",
+      "height": 4032,
+      "image_id": "test_000013",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000014.png",
+      "height": 4032,
+      "image_id": "test_000014",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000015.png",
+      "height": 4032,
+      "image_id": "test_000015",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000016.png",
+      "height": 4032,
+      "image_id": "test_000016",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000017.png",
+      "height": 4032,
+      "image_id": "test_000017",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000018.png",
+      "height": 4032,
+      "image_id": "test_000018",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000019.png",
+      "height": 4032,
+      "image_id": "test_000019",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000020.png",
+      "height": 4032,
+      "image_id": "test_000020",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000021.png",
+      "height": 4032,
+      "image_id": "test_000021",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000022.png",
+      "height": 4032,
+      "image_id": "test_000022",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000023.png",
+      "height": 4032,
+      "image_id": "test_000023",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000024.png",
+      "height": 4032,
+      "image_id": "test_000024",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000025.png",
+      "height": 4032,
+      "image_id": "test_000025",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000026.png",
+      "height": 4032,
+      "image_id": "test_000026",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000027.png",
+      "height": 4032,
+      "image_id": "test_000027",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000028.png",
+      "height": 4032,
+      "image_id": "test_000028",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000029.png",
+      "height": 4032,
+      "image_id": "test_000029",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000030.png",
+      "height": 4032,
+      "image_id": "test_000030",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000031.png",
+      "height": 4032,
+      "image_id": "test_000031",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000032.png",
+      "height": 4032,
+      "image_id": "test_000032",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000033.png",
+      "height": 4032,
+      "image_id": "test_000033",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000034.png",
+      "height": 4032,
+      "image_id": "test_000034",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000035.png",
+      "height": 4032,
+      "image_id": "test_000035",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000036.png",
+      "height": 4032,
+      "image_id": "test_000036",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000037.png",
+      "height": 4032,
+      "image_id": "test_000037",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000038.png",
+      "height": 4032,
+      "image_id": "test_000038",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000039.png",
+      "height": 4032,
+      "image_id": "test_000039",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000040.png",
+      "height": 4032,
+      "image_id": "test_000040",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000041.png",
+      "height": 4032,
+      "image_id": "test_000041",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000042.png",
+      "height": 4032,
+      "image_id": "test_000042",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000043.png",
+      "height": 4032,
+      "image_id": "test_000043",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000044.png",
+      "height": 4032,
+      "image_id": "test_000044",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000045.png",
+      "height": 4032,
+      "image_id": "test_000045",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000046.png",
+      "height": 4032,
+      "image_id": "test_000046",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000047.png",
+      "height": 4032,
+      "image_id": "test_000047",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000048.png",
+      "height": 4032,
+      "image_id": "test_000048",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000049.png",
+      "height": 4032,
+      "image_id": "test_000049",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000050.png",
+      "height": 4032,
+      "image_id": "test_000050",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000051.png",
+      "height": 4032,
+      "image_id": "test_000051",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000052.png",
+      "height": 4032,
+      "image_id": "test_000052",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000053.png",
+      "height": 4032,
+      "image_id": "test_000053",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000054.png",
+      "height": 4032,
+      "image_id": "test_000054",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000055.png",
+      "height": 4032,
+      "image_id": "test_000055",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000056.png",
+      "height": 4032,
+      "image_id": "test_000056",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000057.png",
+      "height": 4032,
+      "image_id": "test_000057",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000058.png",
+      "height": 4032,
+      "image_id": "test_000058",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000059.png",
+      "height": 4032,
+      "image_id": "test_000059",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000060.png",
+      "height": 4032,
+      "image_id": "test_000060",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000061.png",
+      "height": 4032,
+      "image_id": "test_000061",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000062.png",
+      "height": 4032,
+      "image_id": "test_000062",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000063.png",
+      "height": 4032,
+      "image_id": "test_000063",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000064.png",
+      "height": 4032,
+      "image_id": "test_000064",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000065.png",
+      "height": 4032,
+      "image_id": "test_000065",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000066.png",
+      "height": 4032,
+      "image_id": "test_000066",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000067.png",
+      "height": 4032,
+      "image_id": "test_000067",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000068.png",
+      "height": 4032,
+      "image_id": "test_000068",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000069.png",
+      "height": 4032,
+      "image_id": "test_000069",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000070.png",
+      "height": 4032,
+      "image_id": "test_000070",
+      "width": 3024
+    },
+    {
+      "file_name": "test/images/test_000071.png",
+      "height": 4160,
+      "image_id": "test_000071",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000072.png",
+      "height": 4160,
+      "image_id": "test_000072",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000073.png",
+      "height": 4160,
+      "image_id": "test_000073",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000074.png",
+      "height": 4160,
+      "image_id": "test_000074",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000075.png",
+      "height": 4160,
+      "image_id": "test_000075",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000076.png",
+      "height": 4160,
+      "image_id": "test_000076",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000077.png",
+      "height": 4160,
+      "image_id": "test_000077",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000078.png",
+      "height": 4160,
+      "image_id": "test_000078",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000079.png",
+      "height": 4160,
+      "image_id": "test_000079",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000080.png",
+      "height": 4160,
+      "image_id": "test_000080",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000081.png",
+      "height": 4160,
+      "image_id": "test_000081",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000082.png",
+      "height": 3120,
+      "image_id": "test_000082",
+      "width": 4160
+    },
+    {
+      "file_name": "test/images/test_000083.png",
+      "height": 4160,
+      "image_id": "test_000083",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000084.png",
+      "height": 4160,
+      "image_id": "test_000084",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000085.png",
+      "height": 4160,
+      "image_id": "test_000085",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000086.png",
+      "height": 4160,
+      "image_id": "test_000086",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000087.png",
+      "height": 3120,
+      "image_id": "test_000087",
+      "width": 4160
+    },
+    {
+      "file_name": "test/images/test_000088.png",
+      "height": 3120,
+      "image_id": "test_000088",
+      "width": 4160
+    },
+    {
+      "file_name": "test/images/test_000089.png",
+      "height": 4160,
+      "image_id": "test_000089",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000090.png",
+      "height": 3120,
+      "image_id": "test_000090",
+      "width": 4160
+    },
+    {
+      "file_name": "test/images/test_000091.png",
+      "height": 4160,
+      "image_id": "test_000091",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000092.png",
+      "height": 4160,
+      "image_id": "test_000092",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000093.png",
+      "height": 4160,
+      "image_id": "test_000093",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000094.png",
+      "height": 4160,
+      "image_id": "test_000094",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000095.png",
+      "height": 4160,
+      "image_id": "test_000095",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000096.png",
+      "height": 4160,
+      "image_id": "test_000096",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000097.png",
+      "height": 4160,
+      "image_id": "test_000097",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000098.png",
+      "height": 4160,
+      "image_id": "test_000098",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000099.png",
+      "height": 4160,
+      "image_id": "test_000099",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000100.png",
+      "height": 4160,
+      "image_id": "test_000100",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000101.png",
+      "height": 4160,
+      "image_id": "test_000101",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000102.png",
+      "height": 4160,
+      "image_id": "test_000102",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000103.png",
+      "height": 4160,
+      "image_id": "test_000103",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000104.png",
+      "height": 4160,
+      "image_id": "test_000104",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000105.png",
+      "height": 4160,
+      "image_id": "test_000105",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000106.png",
+      "height": 4160,
+      "image_id": "test_000106",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000107.png",
+      "height": 4160,
+      "image_id": "test_000107",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000108.png",
+      "height": 4160,
+      "image_id": "test_000108",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000109.png",
+      "height": 4160,
+      "image_id": "test_000109",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000110.png",
+      "height": 4160,
+      "image_id": "test_000110",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000111.png",
+      "height": 4160,
+      "image_id": "test_000111",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000112.png",
+      "height": 4160,
+      "image_id": "test_000112",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000113.png",
+      "height": 4160,
+      "image_id": "test_000113",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000114.png",
+      "height": 4160,
+      "image_id": "test_000114",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000115.png",
+      "height": 4160,
+      "image_id": "test_000115",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000116.png",
+      "height": 4160,
+      "image_id": "test_000116",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000117.png",
+      "height": 4160,
+      "image_id": "test_000117",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000118.png",
+      "height": 4160,
+      "image_id": "test_000118",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000119.png",
+      "height": 4160,
+      "image_id": "test_000119",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000120.png",
+      "height": 4160,
+      "image_id": "test_000120",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000121.png",
+      "height": 4160,
+      "image_id": "test_000121",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000122.png",
+      "height": 4160,
+      "image_id": "test_000122",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000123.png",
+      "height": 4160,
+      "image_id": "test_000123",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000124.png",
+      "height": 4160,
+      "image_id": "test_000124",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000125.png",
+      "height": 4160,
+      "image_id": "test_000125",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000126.png",
+      "height": 4160,
+      "image_id": "test_000126",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000127.png",
+      "height": 4160,
+      "image_id": "test_000127",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000128.png",
+      "height": 4160,
+      "image_id": "test_000128",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000129.png",
+      "height": 4160,
+      "image_id": "test_000129",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000130.png",
+      "height": 4160,
+      "image_id": "test_000130",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000131.png",
+      "height": 4160,
+      "image_id": "test_000131",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000132.png",
+      "height": 4160,
+      "image_id": "test_000132",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000133.png",
+      "height": 4160,
+      "image_id": "test_000133",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000134.png",
+      "height": 4160,
+      "image_id": "test_000134",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000135.png",
+      "height": 4160,
+      "image_id": "test_000135",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000136.png",
+      "height": 4160,
+      "image_id": "test_000136",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000137.png",
+      "height": 4160,
+      "image_id": "test_000137",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000138.png",
+      "height": 4160,
+      "image_id": "test_000138",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000139.png",
+      "height": 4160,
+      "image_id": "test_000139",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000140.png",
+      "height": 4160,
+      "image_id": "test_000140",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000141.png",
+      "height": 4160,
+      "image_id": "test_000141",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000142.png",
+      "height": 4160,
+      "image_id": "test_000142",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000143.png",
+      "height": 4160,
+      "image_id": "test_000143",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000144.png",
+      "height": 4160,
+      "image_id": "test_000144",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000145.png",
+      "height": 4160,
+      "image_id": "test_000145",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000146.png",
+      "height": 4160,
+      "image_id": "test_000146",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000147.png",
+      "height": 4160,
+      "image_id": "test_000147",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000148.png",
+      "height": 4160,
+      "image_id": "test_000148",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000149.png",
+      "height": 4160,
+      "image_id": "test_000149",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000150.png",
+      "height": 4160,
+      "image_id": "test_000150",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000151.png",
+      "height": 4160,
+      "image_id": "test_000151",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000152.png",
+      "height": 4160,
+      "image_id": "test_000152",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000153.png",
+      "height": 4160,
+      "image_id": "test_000153",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000154.png",
+      "height": 4160,
+      "image_id": "test_000154",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000155.png",
+      "height": 4160,
+      "image_id": "test_000155",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000156.png",
+      "height": 4160,
+      "image_id": "test_000156",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000157.png",
+      "height": 4160,
+      "image_id": "test_000157",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000158.png",
+      "height": 4160,
+      "image_id": "test_000158",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000159.png",
+      "height": 4160,
+      "image_id": "test_000159",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000160.png",
+      "height": 4160,
+      "image_id": "test_000160",
+      "width": 3120
+    },
+    {
+      "file_name": "test/images/test_000161.png",
+      "height": 4160,
+      "image_id": "test_000161",
+      "width": 3120
+    }
+  ]
+}

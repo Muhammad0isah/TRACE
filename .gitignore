@@ -1,0 +1,43 @@
+# Organizer secrets and private evaluation data
+evaluation-private/
+*_private_key.pem
+private_key.pem
+truth.key
+.env
+.env.*
+!.env.example
+
+# Downloaded datasets, model artifacts and participant predictions
+data/
+datasets/
+outputs/
+predictions/
+models/
+results/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.enc
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.npy
+*.npz
+!evaluation/*.enc
+!evaluation/*.sha256
+!submissions/**/*.enc
+
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+.DS_Store
+leaderboard/.record.lock
+tests/
+.github/workflows/checks.yml

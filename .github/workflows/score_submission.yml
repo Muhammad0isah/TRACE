@@ -1,0 +1,88 @@
+name: Score encrypted submission
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'submissions/*/**'
+
+# Superseded revisions of one PR may stop; separate teams are never cancelled.
+concurrency:
+  group: encrypted-submission-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      # SECURITY: the base repository's default branch is the only executable code.
+      # Never replace this ref with the PR head/merge ref or run submitted scripts.
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install trusted scoring dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Fetch data files and score using trusted code
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SUBMISSION_PRIVATE_KEY: ${{ secrets.SUBMISSION_PRIVATE_KEY }}
+        run: >-
+          python -m scripts.ci_submission score
+          --event "$GITHUB_EVENT_PATH"
+          --output "$RUNNER_TEMP/score-result/result.json"
+      # The artifact contains only validated numeric metrics and public metadata.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-result-${{ github.run_id }}
+          path: ${{ runner.temp }}/score-result/result.json
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: score
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install trusted publication dependencies
+        run: python -m pip install -r requirements.txt
+      # No private decryption secret or native prediction parser is used here.
+      # The current workflow run, rather than any participant run, owns this artifact.
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-result-${{ github.run_id }}
+          path: ${{ runner.temp }}/score-result
+      - name: Publish against the latest branch with safe push retries
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: >-
+          python -m scripts.ci_submission publish
+          --bundle "$RUNNER_TEMP/score-result/result.json"
+          --branch "$DEFAULT_BRANCH"

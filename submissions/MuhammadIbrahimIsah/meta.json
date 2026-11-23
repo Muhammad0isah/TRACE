@@ -1,0 +1,7 @@
+{
+  "team": "MuhammadIbrahimIsah",
+  "model": "GraphSSDLite",
+  "type": "human",
+  "notes": "20 epochs from scratch on the full official training partition; fixed four-neighbour graph message-passing adapters on six SSDLite feature-pyramid maps.",
+  "run": {"seed": 25, "threads": 4, "epochs": 20, "weights": "none"}
+}
