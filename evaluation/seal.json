@@ -1,10 +1,10 @@
 {
   "benchmark_id": "trace-v1",
-  "created_utc": "2026-11-23T21:24:37.253639+00:00",
+  "created_utc": "2026-11-23T21:36:53.993127+00:00",
   "files": {
     "ground_truth.enc": {
       "bytes": 959442,
-      "sha256": "24abab2fce4ff430886dddd23c6ad8a84dcd721581fb7a669a96b517dba790b7"
+      "sha256": "4177513b71425d56457e53b48d225c3a390a6fea3facde0147f90008b187f6c9"
     },
     "test_manifest.json": {
       "bytes": 22819,
@@ -12,7 +12,7 @@
     }
   },
   "image_count": 161,
-  "public_key_sha256": "143c36cf9e02182d35648282651c10b69d4cd26f8836ae4452fbab7b2d8b779e",
+  "public_key_sha256": "1f3fa1a5d2776357d2f9a9963de7aca482d9aa294d346c96f74348b8509ad015",
   "purpose": "ground_truth",
   "version": 1
 }

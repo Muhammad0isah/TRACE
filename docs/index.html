@@ -1,18 +1,24 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Competition leaderboard</title>
-<style>body{font:16px system-ui,sans-serif;max-width:1200px;margin:3rem auto;padding:0 1rem;background:#f8fafc;color:#172033}h1{font-size:2rem}table{border-collapse:collapse;width:100%;background:white}th,td{text-align:left;padding:.8rem;border-bottom:1px solid #dbe3ed}th{background:#e8eef7}.scroll{overflow-x:auto}.muted{color:#526077}a{color:#1859aa}button,input{font:inherit}</style>
-</head><body><h1>Competition leaderboard</h1><p class="muted" id="status">Loading verified submissions…</p>
-<p><a href="leaderboard.csv">Download CSV</a> · Scores are ranked using full precision; equal scores share a rank.</p>
-<div class="scroll"><table><thead><tr><th>Rank</th><th>Team</th><th>Type</th><th>Model</th><th>F1 Score</th></tr></thead><tbody id="entries"></tbody></table></div>
+<title>Leaderboard</title>
+<style>
+:root{--bg:#0b0f17;--panel:#101827;--text:#e6edf3;--muted:#9fb0c0;--border:#223047;--accent:#7aa2f7}
+*{box-sizing:border-box}body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}.title{text-align:center;padding:10px 0}h1{margin:0 0 6px;font-size:28px}.sub{margin:0;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;box-shadow:0 10px 26px rgba(0,0,0,.25);margin:8px 0}
+.controls{display:grid;grid-template-columns:1.5fr .8fr .8fr 1.1fr;gap:12px;align-items:end}.control label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
+input,select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0c1422;color:var(--text);font:inherit}input:focus,select:focus{outline:none;border-color:var(--accent)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{display:flex;gap:6px;align-items:center;border:1px solid var(--border);padding:6px 8px;border-radius:999px;background:#0c1422;user-select:none}.checks input{width:auto}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:separate;border-spacing:0}th,td{padding:10px;border-bottom:1px solid var(--border);white-space:nowrap}th{position:sticky;top:0;background:linear-gradient(#111b2b,#0f1827);text-align:left;font-size:12px;color:var(--muted);cursor:pointer}tbody tr:hover{background:#0d1626}.rank{color:var(--accent);font-weight:600}.score{font-variant-numeric:tabular-nums}.foot{margin-top:10px;color:var(--muted);font-size:12px}@media(max-width:800px){.controls{grid-template-columns:1fr 1fr}}
+</style></head><body><header class="wrap"><div class="title"><h1>Leaderboard</h1><p class="sub"></p></div></header>
+<main class="wrap"><section class="controls card"><div class="control"><label for="search">Search</label><input id="search" type="search" placeholder="Search team or model…"></div><div class="control"><label for="modelFilter">Model</label><select id="modelFilter"><option value="all">All</option></select></div><div class="control"><label for="typeFilter">Type</label><select id="typeFilter"><option value="all">All</option></select></div><div class="control"><label>Columns</label><div class="checks" id="columnToggles"></div></div></section>
+<section class="card"><div class="table-wrap"><table id="board"><thead><tr><th data-key="rank">Rank</th><th data-key="team">Team</th><th data-key="type">Type</th><th data-key="model">Model</th><th data-key="score">F1 Score</th></tr></thead><tbody></tbody></table></div><div class="foot" id="status"></div></section></main>
 <script>
-fetch('leaderboard.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('Unable to load leaderboard');return response.json()}).then(data=>{
- const body=document.getElementById('entries');
- for(const entry of data){const row=document.createElement('tr');
-   for(const value of [entry.rank,entry.team,entry.type,entry.model,Number(entry.score).toFixed(6)]){
-     const cell=document.createElement('td');cell.textContent=String(value);row.appendChild(cell);
-   }body.appendChild(row);
- }
- document.getElementById('status').textContent=data.length ? data[0].benchmark_id+' · '+data.length+' valid submissions' : 'No valid submissions yet.';
-}).catch(()=>{document.getElementById('status').textContent='The leaderboard could not be loaded. Please use the CSV link.'});
+const state={rows:[],filtered:[],sortKey:'score',sortDir:'desc',hidden:new Set()};
+const columns=[['team','Team'],['type','Type'],['model','Model'],['score','F1 Score']];
+function render(){const body=document.querySelector('#board tbody');body.replaceChildren();state.filtered.forEach((row,index)=>{const tr=document.createElement('tr');const values=[['rank',index?row.rank:row.rank],['team',row.team],['type',row.type],['model',row.model],['score',Number(row.score).toFixed(6)]];values.forEach(([key,value])=>{const cell=document.createElement('td');cell.dataset.key=key;cell.textContent=String(value);if(key==='rank')cell.className='rank';if(key==='score')cell.classList.add('score');if(state.hidden.has(key))cell.style.display='none';tr.appendChild(cell)});body.appendChild(tr)});document.querySelectorAll('#board th').forEach(th=>th.style.display=state.hidden.has(th.dataset.key)?'none':'');document.getElementById('status').textContent=state.filtered.length?`${state.filtered.length} result(s)`:'No results'}
+function filter(){const query=document.getElementById('search').value.toLowerCase().trim(),model=document.getElementById('modelFilter').value,type=document.getElementById('typeFilter').value;let rows=state.rows.filter(row=>(model==='all'||row.model===model)&&(type==='all'||row.type===type)&&(!query||`${row.team} ${row.model} ${row.type}`.toLowerCase().includes(query)));const dir=state.sortDir==='asc'?1:-1;rows.sort((a,b)=>{let x=a[state.sortKey],y=b[state.sortKey];if(state.sortKey==='score')return(Number(x)-Number(y))*dir;return String(x).localeCompare(String(y))*dir});state.filtered=rows;render()}
+function options(id,key){const select=document.getElementById(id);[...new Set(state.rows.map(row=>row[key]).filter(Boolean))].sort().forEach(value=>{const option=document.createElement('option');option.value=option.textContent=value;select.appendChild(option)})}
+function toggles(){const box=document.getElementById('columnToggles');columns.forEach(([key,label])=>{const labelNode=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=true;check.addEventListener('change',()=>{check.checked?state.hidden.delete(key):state.hidden.add(key);render()});labelNode.append(check,document.createTextNode(label));box.appendChild(labelNode)})}
+fetch('leaderboard.json',{cache:'no-store'}).then(response=>response.ok?response.json():Promise.reject()).then(rows=>{state.rows=rows;options('modelFilter','model');options('typeFilter','type');toggles();document.getElementById('search').addEventListener('input',filter);document.getElementById('modelFilter').addEventListener('change',filter);document.getElementById('typeFilter').addEventListener('change',filter);document.querySelectorAll('#board th').forEach(th=>th.addEventListener('click',()=>{const key=th.dataset.key;if(state.sortKey===key)state.sortDir=state.sortDir==='asc'?'desc':'asc';else{state.sortKey=key;state.sortDir=key==='score'?'desc':'asc'}filter()}));filter()}).catch(()=>{document.getElementById('status').textContent='Unable to load leaderboard.'});
 </script></body></html>

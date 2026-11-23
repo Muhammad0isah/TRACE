@@ -14,7 +14,7 @@
 solutions on real tomato-farm images.
 
 **Task:** object detection  
-**Metric:** detection F1 score at IoU 0.50 and confidence threshold 0.50  
+**Metric:** F1 score (micro; IoU ≥ 0.50, confidence ≥ 0.50)  
 **Data:** full Laboro Tomato `tomato_mixed` release — 643 train / 161 test images, 6 classes  
 **Leaderboard:** [live page](https://muhammad0isah.github.io/TRACE/) · [CSV](docs/leaderboard.csv)
 
