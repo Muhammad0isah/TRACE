@@ -30,6 +30,20 @@ and green tomatoes in large and small size groups.
 The original data is [Laboro Tomato](https://github.com/laboroai/LaboroTomato),
 licensed CC BY-NC-SA 4.0. This competition uses its bounding-box annotations.
 
+### Ripeness classes
+
+Laboro Tomato labels each fruit by its size group and visible red coverage. A
+fully ripened tomato is about 90% or more red and ready for harvest; a half
+ripened tomato is about 30–89% red; and a green tomato is about 0–30% red.
+Combining that ripeness label with the large (`b`) and small/cherry (`l`) size
+groups gives the six native classes: `b_fully_ripened`, `b_half_ripened`,
+`b_green`, `l_fully_ripened`, `l_half_ripened`, and `l_green`.
+
+<img src="docs/assets/trace_ripeness_examples.png" alt="Official Laboro Tomato examples of fully ripened, half ripened, and green tomatoes" width="100%">
+
+These are crops from official training images. The top row is the large (`b`)
+group and the bottom row is the small/cherry (`l`) group.
+
 ### Annotation example
 
 <img src="docs/assets/trace_detection_example.png" alt="Original tomato-farm image beside its ground-truth tomato bounding boxes" width="100%">
@@ -37,6 +51,19 @@ licensed CC BY-NC-SA 4.0. This competition uses its bounding-box annotations.
 The left panel is an official training image. The right panel shows the target
 bounding boxes used for object-detection training; box colours distinguish the
 six tomato size-and-ripeness classes.
+
+---
+
+## Download the dataset
+
+Run the following commands to download and prepare Laboro Tomato:
+
+```bash
+python scripts/download_data.py --download --output downloads/laboro_tomato.zip
+python scripts/prepare_data.py --source downloads/laboro_tomato.zip --output data/public
+```
+
+Use `data/public/` for training and prediction.
 
 ---
 
@@ -64,7 +91,6 @@ TRACE/
 
 ```bash
 pip install -r requirements.txt
-pip install -r requirements-baseline.txt
 ```
 
 ### 2. Train and predict

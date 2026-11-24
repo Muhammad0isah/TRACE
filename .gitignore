@@ -10,6 +10,7 @@ truth.key
 # Downloaded datasets, model artifacts and participant predictions
 data/
 datasets/
+downloads/
 outputs/
 predictions/
 models/
