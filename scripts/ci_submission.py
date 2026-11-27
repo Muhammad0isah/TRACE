@@ -132,14 +132,16 @@ def check_live_pull(api: GitHubAPI, identity: dict) -> dict:
 
 
 def select_files(files: object) -> tuple[str, dict[str, dict]]:
-    if not isinstance(files, list) or len(files) != 2:
-        raise CIError("A submission PR must change exactly submission.enc and meta.json for one team")
+    if not isinstance(files, list):
+        raise CIError("Invalid pull request file list")
     selected, teams = {}, set()
     for entry in files:
         if not isinstance(entry, dict):
             raise CIError("Invalid pull request file metadata")
         path = entry.get("filename")
         match = SUBMISSION_PATH.fullmatch(path) if isinstance(path, str) else None
+        if not match:
+            continue
         if not match or entry.get("status") not in {"added", "modified"} or entry.get("previous_filename"):
             raise CIError("Submission PR contains an unsupported path or file change")
         team, name = match.groups()
@@ -149,14 +151,14 @@ def select_files(files: object) -> tuple[str, dict[str, dict]]:
         sha(entry.get("sha"))
         selected[name] = entry
     if len(teams) != 1 or set(selected) != {"submission.enc", "meta.json"}:
-        raise CIError("Both submission files must belong to the same team")
+        raise CIError("Submission must include submission.enc and meta.json for one team")
     return teams.pop(), selected
 
 
 def fetch_files(api: GitHubAPI, identity: dict) -> tuple[str, bytes, dict]:
     pull = check_live_pull(api, identity)
-    if pull.get("changed_files") != 2:
-        raise CIError("A submission PR must change exactly two files")
+    if not isinstance(pull.get("changed_files"), int) or pull["changed_files"] > 100:
+        raise CIError("Submission PR has too many changed files to validate")
     files = api.request(f"/repos/{identity['repository']}/pulls/{identity['pr_number']}/files?per_page=100&page=1")
     team, selected = select_files(files)
     head_repository, head_sha = identity["head_repository"], identity["head_sha"]
