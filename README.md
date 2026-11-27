@@ -23,7 +23,6 @@ solutions on real tomato-farm images.
 ## Dataset
 
 TRACE retains all official images, all boxes, and the original train/test split.
-Images receive reproducible mild RGB Gaussian noise (seed 25, sigma 3/255).
 Boxes remain in native image coordinates. Categories are fully ripe, half ripe,
 and green tomatoes in large and small size groups.
 
@@ -51,6 +50,16 @@ group and the bottom row is the small/cherry (`l`) group.
 The left panel is an official training image. The right panel shows the target
 bounding boxes used for object-detection training; box colours distinguish the
 six tomato size-and-ripeness classes.
+
+### Dataset modification
+
+To make TRACE different from the original Laboro Tomato release, we apply the
+following reproducible modification while retaining the complete dataset:
+
+| Modification | Effect |
+| --- | --- |
+| Image noise | Every image receives additive RGB Gaussian noise with standard deviation 3 pixel values (3/255 on a 0–1 scale). Seed 25 makes the result reproducible. |
+| Labels and split | Bounding boxes, image dimensions, classes, and the official train/test split are unchanged. |
 
 ---
 
