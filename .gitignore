@@ -42,3 +42,5 @@ venv/
 leaderboard/.record.lock
 tests/
 .github/workflows/checks.yml
+baseline_enhanced.py
+train_gnn.py
